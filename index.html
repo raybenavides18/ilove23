@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>July 23rd</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #fff0f5; text-align: center; padding: 80px; }
+    input, button { font-size: 18px; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>❤️❤️❤️❤️❤️</h1>
+  <p>Enter the password (hint: no caps or spaces)</p>
+
+  <input type="password" id="pw" placeholder="Enter password">
+  <br><br>
+  <button onclick="checkPassword()">Enter</button>
+
+  <script>
+    function checkPassword() {
+      const pw = document.getElementById('pw').value;
+      if (pw === "iloveyou") { 
+        window.location.href = "start.html"; 
+      } else {
+        alert("hmmm.....");
+      }
+    }
+  </script>
+</body>
