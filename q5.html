@@ -34,19 +34,18 @@
 </head>
 <body>
   <h1>Question 5 🧡🧡🧡🧡🧡</h1>
-  <p>What was the first movie we watched together?</p>
+  <p>Who loves the other more? 🤔</p>
 
-  <button class="choice-btn" onclick="checkAnswer('a')">A) Twisters</button>
-  <button class="choice-btn" onclick="checkAnswer('b')">B) We Live In Time</button>
-  <button class="choice-btn" onclick="checkAnswer('c')">C) White Chicks</button>
-  <button class="choice-btn" onclick="checkAnswer('d')">D) Hamilton (it counts)</button>
+  <button class="choice-btn" onclick="checkAnswer('a')">A) Me 😍</button>
+  <button class="choice-btn" onclick="checkAnswer('b')">B) You 🥰</button>
+
 
   <script>
     function checkAnswer(option) {
-      if (option === 'c') {
-        window.location.href = 'bonus.html'; 
+      if (option === 'a') {
+        window.location.href = 'me.html'; 
       } else {
-        alert("was that a misclick?");
+        window.location.href = 'you.html';
       }
     }
   </script>
