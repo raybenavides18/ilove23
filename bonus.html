@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Bonus Round</title>
   <style>
     body {
@@ -12,32 +13,60 @@
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 120px);
-      grid-gap: 20px;
+      grid-template-columns: repeat(6, 100px);
+      grid-gap: 15px;
       justify-content: center;
       margin-top: 40px;
     }
 
     .box {
-      background-color: #fde68a;
-      border: 2px solid #f59e0b;
-      border-radius: 12px;
-      height: 120px;
-      font-size: 24px;
+      width: 100px;
+      height: 100px;
+      perspective: 800px;
+    }
+
+    .inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      font-size: 24px;
     }
 
-    .box:hover {
-      background-color: #fcd34d;
+    .front {
+      background-color: #fde68a;
+      border: 2px solid #f59e0b;
+    }
+
+    .back {
+      background-color: #fef3c7;
+      transform: rotateY(180deg);
     }
 
     /* Modal Styling */
@@ -92,20 +121,9 @@
 </head>
 <body>
   <h1>🎁 Bonus Round!</h1>
-  <p>One of these boxes is hiding something special... pick wisely!</p>
+  <p>One of these boxes hides roses. Click to reveal!</p>
 
-  <div class="grid">
-    <!-- Boxes 0-8 -->
-    <div class="box" onclick="checkBox(0)">❓</div>
-    <div class="box" onclick="checkBox(1)">❓</div>
-    <div class="box" onclick="checkBox(2)">❓</div>
-    <div class="box" onclick="checkBox(3)">❓</div>
-    <div class="box" onclick="checkBox(4)">❓</div> <!-- this one will be the right box -->
-    <div class="box" onclick="checkBox(5)">❓</div>
-    <div class="box" onclick="checkBox(6)">❓</div>
-    <div class="box" onclick="checkBox(7)">❓</div>
-    <div class="box" onclick="checkBox(8)">❓</div>
-  </div>
+  <div class="grid" id="boxGrid"></div>
 
   <!-- Correct Modal -->
   <div id="correctModal" class="modal">
@@ -117,29 +135,43 @@
     </div>
   </div>
 
-  <!-- Wrong Modal -->
-  <div id="wrongModal" class="modal">
-    <div class="modal-content">
-      <h2>Oops!</h2>
-      <p>No roses here. Try another box 🌱</p>
-      <button onclick="closeModals()">Try Again</button>
-    </div>
-  </div>
-
   <script>
-    const correctIndex = 4; // Box 4 is the winner (center box)
+    const grid = document.getElementById('boxGrid');
+    const correctIndex = Math.floor(Math.random() * 36); // Random correct box
+    const totalBoxes = 36;
 
-    function checkBox(index) {
-      if (index === correctIndex) {
-        document.getElementById('correctModal').style.display = 'block';
-      } else {
-        document.getElementById('wrongModal').style.display = 'block';
-      }
-    }
+    for (let i = 0; i < totalBoxes; i++) {
+      const box = document.createElement('div');
+      box.className = 'box';
 
-    function closeModals() {
-      document.getElementById('correctModal').style.display = 'none';
-      document.getElementById('wrongModal').style.display = 'none';
+      const inner = document.createElement('div');
+      inner.className = 'inner';
+      inner.dataset.index = i;
+
+      const front = document.createElement('div');
+      front.className = 'front';
+      front.textContent = '❓';
+
+      const back = document.createElement('div');
+      back.className = 'back';
+      back.textContent = (i === correctIndex) ? '🌹' : '🙃';
+
+      inner.appendChild(front);
+      inner.appendChild(back);
+      box.appendChild(inner);
+      grid.appendChild(box);
+
+      inner.addEventListener('click', function () {
+        if (inner.classList.contains('flipped')) return;
+
+        inner.classList.add('flipped');
+
+        if (parseInt(inner.dataset.index) === correctIndex) {
+          setTimeout(() => {
+            document.getElementById('correctModal').style.display = 'block';
+          }, 800);
+        }
+      });
     }
 
     function goToFinal() {
