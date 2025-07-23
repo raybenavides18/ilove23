@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Question 4</title>
@@ -30,24 +31,80 @@
     .choice-btn:hover {
       background-color: #fdba74;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fff0f6;
+      margin: 15% auto;
+      padding: 30px;
+      border: 2px solid #f472b6;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: #be185d;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f472b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal-content button:hover {
+      background-color: #ec4899;
+    }
   </style>
 </head>
 <body>
   <h1>Question 4 🧡🧡🧡🧡</h1>
-  <p>What was the first movie we watched together?</p>
+  <p>How many days until we see each other?</p>
 
-  <button class="choice-btn" onclick="checkAnswer('a')">A) Twisters</button>
-  <button class="choice-btn" onclick="checkAnswer('b')">B) We Live In Time</button>
-  <button class="choice-btn" onclick="checkAnswer('c')">C) White Chicks</button>
-  <button class="choice-btn" onclick="checkAnswer('d')">D) Hamilton (it counts)</button>
+  <button class="choice-btn" onclick="checkAnswer('a')">A) 32 days</button>
+  <button class="choice-btn" onclick="checkAnswer('b')">B) 31 days</button>
+  <button class="choice-btn" onclick="checkAnswer('c')">C) 30 days</button>
+  <button class="choice-btn" onclick="checkAnswer('d')">D) 1 day (PLEASEEEEE GOD)</button>
+
+  <!-- Modal HTML -->
+  <div id="correctModal" class="modal">
+    <div class="modal-content">
+      <h2>Nice one 😝😝</h2>
+      <p>i see pho in your future....</p>
+      <button onclick="goToNext()">Next ➡️</button>
+    </div>
+  </div>
 
   <script>
     function checkAnswer(option) {
       if (option === 'b') {
-        window.location.href = 'q5.html'; 
+        document.getElementById('correctModal').style.display = 'block';
       } else {
         alert("was that a misclick?");
       }
+    }
+
+    function goToNext() {
+      window.location.href = 'q5.html';
     }
   </script>
 </body>
