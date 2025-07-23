@@ -78,19 +78,19 @@
 </head>
 <body>
   <h1>Question 3 🧡🧡🧡</h1>
-  <p>What did we eat before that movie?</p>
+  <p>Where are we absolutely going?</p>
 
-  <button class="choice-btn" onclick="checkAnswer('a')">A) Pho</button>
-  <button class="choice-btn" onclick="checkAnswer('b')">B) Ramen</button>
-  <button class="choice-btn" onclick="checkAnswer('c')">C) Cane's</button>
-  <button class="choice-btn" onclick="checkAnswer('d')">D) Chipotle</button>
+  <button class="choice-btn" onclick="checkAnswer('a')">A) Puerto Rico</button>
+  <button class="choice-btn" onclick="checkAnswer('b')">B) Italy</button>
+  <button class="choice-btn" onclick="checkAnswer('c')">C) Japan</button>
+  <button class="choice-btn" onclick="checkAnswer('d')">D) Cane's</button>
 
   <!-- Modal HTML -->
   <div id="correctModal" class="modal">
     <div class="modal-content">
-      <h2>Are you a genius??? 🤯</h2>
-      <p>i see pho in your future....</p>
-      <button onclick="goToNext()">Next ➡️</button>
+      <h2>Yes, we will!!!!</h2>
+      <p>the correct answer is all of them 😁</p>
+      <button onclick="goToNext()"➡️</button>
     </div>
   </div>
 
@@ -99,7 +99,7 @@
       if (option === 'a') {
         document.getElementById('correctModal').style.display = 'block';
       } else {
-        alert("was that a misclick?");
+        document.getElementById('correctModal').style.display = 'block';
       }
     }
 
