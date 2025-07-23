@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bonus Round</title>
+  <style>
+    body {
+      background: #fff1f2;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #4b2e2e;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .box {
+      background-color: #fde68a;
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      height: 120px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .box:hover {
+      background-color: #fcd34d;
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff0f6;
+      margin: 15% auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .modal-content img {
+      max-width: 100px;
+      margin: 10px 0;
+    }
+
+    .modal-content h2 {
+      color: #be185d;
+      margin-bottom: 10px;
+    }
+
+    .modal-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #f472b6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal-content button:hover {
+      background-color: #ec4899;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎁 Bonus Round!</h1>
+  <p>One of these boxes is hiding something special... pick wisely!</p>
+
+  <div class="grid">
+    <!-- Boxes 0-8 -->
+    <div class="box" onclick="checkBox(0)">❓</div>
+    <div class="box" onclick="checkBox(1)">❓</div>
+    <div class="box" onclick="checkBox(2)">❓</div>
+    <div class="box" onclick="checkBox(3)">❓</div>
+    <div class="box" onclick="checkBox(4)">❓</div> <!-- this one will be the right box -->
+    <div class="box" onclick="checkBox(5)">❓</div>
+    <div class="box" onclick="checkBox(6)">❓</div>
+    <div class="box" onclick="checkBox(7)">❓</div>
+    <div class="box" onclick="checkBox(8)">❓</div>
+  </div>
+
+  <!-- Correct Modal -->
+  <div id="correctModal" class="modal">
+    <div class="modal-content">
+      <h2>🌹 You found it!</h2>
+      <img src="roses.png" alt="Roses">
+      <p>You're my favorite flower. Thank you for being you 💐</p>
+      <button onclick="goToFinal()">Continue to the final page ➡️</button>
+    </div>
+  </div>
+
+  <!-- Wrong Modal -->
+  <div id="wrongModal" class="modal">
+    <div class="modal-content">
+      <h2>Oops!</h2>
+      <p>No roses here. Try another box 🌱</p>
+      <button onclick="closeModals()">Try Again</button>
+    </div>
+  </div>
+
+  <script>
+    const correctIndex = 4; // Box 4 is the winner (center box)
+
+    function checkBox(index) {
+      if (index === correctIndex) {
+        document.getElementById('correctModal').style.display = 'block';
+      } else {
+        document.getElementById('wrongModal').style.display = 'block';
+      }
+    }
+
+    function closeModals() {
+      document.getElementById('correctModal').style.display = 'none';
+      document.getElementById('wrongModal').style.display = 'none';
+    }
+
+    function goToFinal() {
+      window.location.href = 'final.html';
+    }
+  </script>
+</body>
+</html>
