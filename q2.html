@@ -78,25 +78,25 @@
 </head>
 <body>
   <h1>Question 2 🧡🧡</h1>
-  <p>What did we eat </p>
+  <p>What did we eat before that movie?</p>
 
-  <button class="choice-btn" onclick="checkAnswer('a')">A) Twisters</button>
-  <button class="choice-btn" onclick="checkAnswer('b')">B) We Live In Time</button>
-  <button class="choice-btn" onclick="checkAnswer('c')">C) White Chicks</button>
-  <button class="choice-btn" onclick="checkAnswer('d')">D) Hamilton (it counts)</button>
+  <button class="choice-btn" onclick="checkAnswer('a')">A) Pho</button>
+  <button class="choice-btn" onclick="checkAnswer('b')">B) Ramen</button>
+  <button class="choice-btn" onclick="checkAnswer('c')">C) Cane's</button>
+  <button class="choice-btn" onclick="checkAnswer('d')">D) Chipotle</button>
 
   <!-- Modal HTML -->
   <div id="correctModal" class="modal">
     <div class="modal-content">
-      <h2>Right again 😛</h2>
-      <p>💕</p>
+      <h2>Are you a genius??? 🤯</h2>
+      <p>i see pho in your future....</p>
       <button onclick="goToNext()">Next ➡️</button>
     </div>
   </div>
 
   <script>
     function checkAnswer(option) {
-      if (option === 'd') {
+      if (option === 'a') {
         document.getElementById('correctModal').style.display = 'block';
       } else {
         alert("was that a misclick?");
