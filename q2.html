@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Question 2</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7ed;
+      text-align: center;
+      padding: 50px;
+      color: #4b2e2e;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .choice-btn {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 24px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #fed7aa;
+      transition: background-color 0.3s;
+    }
+
+    .choice-btn:hover {
+      background-color: #fdba74;
+    }
+  </style>
+</head>
+<body>
+  <h1>Question 2 🧡🧡</h1>
+  <p>What was the first movie we watched together?</p>
+
+  <button class="choice-btn" onclick="checkAnswer('a')">A) Twisters</button>
+  <button class="choice-btn" onclick="checkAnswer('b')">B) We Live In Time</button>
+  <button class="choice-btn" onclick="checkAnswer('c')">C) White Chicks</button>
+  <button class="choice-btn" onclick="checkAnswer('d')">D) Hamilton (it counts)</button>
+
+  <script>
+    function checkAnswer(option) {
+      if (option === 'd') {
+        window.location.href = 'q3.html'; 
+      } else {
+        alert("was that a misclick?");
+      }
+    }
+  </script>
+</body>
+</html>
