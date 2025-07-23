@@ -45,20 +45,84 @@
     .btn:hover {
       background-color: #f87171;
     }
+
+    /* Modal styles */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .popup-content {
+      background-color: #fff7ed;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 16px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #d946ef;
+    }
+
+    .popup p {
+      font-size: 18px;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #fca5a5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background-color: #f87171;
+    }
   </style>
 </head>
 <body>
 
-  <h1>❤️ I Love You ❤️</h1>
+  <h1>❤️ Happy 5 Months ❤️</h1>
   <p>
     This is the end of this little website, just how we're nearing the end of long distance 🥺 <br>
-    This is our last anniversary we'll have to spend long distance for a good while, and I cannot wait to see you again. I know it's been tough in some parts, but I just know and feel that our love has grown stronger all because of it. I can't wait to be in your presence again, to actually see you with my own two eyes and feel you with my own two hands. Those are senses I have missed all summer long, and I can only revisit them in my dreams. But, it won't be a dream for much longer. The day where we can enjoy each other's love, in-person, is coming, and I know I've said this like five times already, but I seriously cannot wait. But until then, happy 5-months, my love. 💞
+    This is our last anniversary we'll have to spend long distance for a good while, and I cannot wait to see you again. I know it's been tough in some parts, but I just know and feel that our love has grown stronger all because of it. I can't wait to be in your presence again, to actually see you with my own two eyes and feel you with my own two hands. Those are senses I have missed all summer long, and I can only revisit them in my dreams. But, it won't be a dream for much longer. The day where we can enjoy each other's love, in-person, is coming, and I know I've said this like five times already, but I seriously cannot wait. But until then, happy 5-months, my Love. 💞
   </p>
 
   <img src="us2.jpg" alt="Us">
 
   <br>
-  <button class="btn" onclick="alert('I love you ❤️')">One Last Thing</button>
+  <button class="btn" onclick="showPopup()">One Last Thing</button>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>One More Thing 💌</h2>
+      <p>I love you endlessly, Arlette. </p>
+      <button class="close-btn" onclick="hidePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function hidePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
